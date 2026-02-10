@@ -6,21 +6,18 @@ function App() {
   const [accepted, setAccepted] = useState(false);
   const [decisionType, setDecisionType] = useState(null); // 'yes' or 'caught'
 
-  // Your Discord Webhook URL
-  const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1470805864750383147/tvJ5tzqJYyn4cODXavob0AnM_ZCraDyfvRcCrbTRQt5-Pk6DPCZiaqn7s4RqfWRZTBZb";
-
   React.useEffect(() => {
-    if (decisionType && DISCORD_WEBHOOK_URL && DISCORD_WEBHOOK_URL.startsWith("http")) {
+    if (decisionType) {
       const message = decisionType === 'yes' 
         ? "💖 **SHE SAID YES!** 💖\n(Clicked the big pink button!)" 
         : "🥺 **SHE SAID NO (but got caught!)** 🥺\n(Caught the runaway button!)";
 
       console.log(`Sending Discord notification for: ${decisionType}`);
       
-      fetch(DISCORD_WEBHOOK_URL, {
+      fetch('/api/notify', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ content: message })
+        body: JSON.stringify({ message })
       })
       .then(response => {
         if (response.ok) {
