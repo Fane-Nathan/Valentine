@@ -36,7 +36,7 @@ const SuccessView = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
-        className="text-center z-10 glass-panel p-16 rounded-[3rem]"
+        className="text-center z-10 glass-panel p-8 sm:p-16 rounded-2xl sm:rounded-[3rem] mx-4"
       >
         <motion.div 
             animate={{ 
@@ -52,25 +52,25 @@ const SuccessView = () => {
             className="inline-block mb-8"
         >
             <div className="relative">
-                <Heart className="w-32 h-32 text-valentine-red fill-valentine-red drop-shadow-2xl" />
-                <Stars className="absolute -top-4 -right-4 text-yellow-400 w-12 h-12 animate-pulse" />
+                <Heart className="w-20 h-20 sm:w-32 sm:h-32 text-valentine-red fill-valentine-red drop-shadow-2xl" />
+                <Stars className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 text-yellow-400 w-8 h-8 sm:w-12 sm:h-12 animate-pulse" />
             </div>
         </motion.div>
 
-        <h1 className="text-6xl md:text-8xl font-elegant text-gray-900 mb-6 tracking-tighter">
+        <h1 className="text-4xl sm:text-6xl md:text-8xl font-elegant text-gray-900 mb-4 sm:mb-6 tracking-tighter">
           You said <span className="text-valentine-love italic">Yes!</span>
         </h1>
         
         <motion.p 
           transition={{ delay: 0.5, duration: 1 }}
-          className="text-2xl md:text-3xl font-light font-body text-gray-600"
+          className="text-lg sm:text-2xl md:text-3xl font-light font-body text-gray-600"
         >
           You just made me the happiest person alive. ❤️
         </motion.p>
       </motion.div>
 
       {/* Floating Hearts Background */}
-      {[...Array(40)].map((_, i) => {
+      {[...Array(typeof window !== 'undefined' && window.innerWidth < 640 ? 20 : 40)].map((_, i) => {
         const size = Math.random() * 30 + 15;
         const colors = ['#ff4d6d', '#ffb8d1', '#e63946', '#ffc2d1', '#d8b4fe'];
         const color = colors[Math.floor(Math.random() * colors.length)];

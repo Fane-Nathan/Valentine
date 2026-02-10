@@ -58,7 +58,7 @@ const QuestionCard = ({ onYes }) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen relative overflow-hidden">
+    <div className="flex flex-col items-center justify-center min-h-screen relative overflow-hidden px-4">
       {/* Background Ambience */}
       <div className="absolute inset-0 bg-gradient-to-br from-valentine-pink/10 via-white to-valentine-blush/10 -z-20" />
       <div className="absolute top-[-25%] left-[-15%] w-[60%] h-[60%] bg-valentine-pink rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" />
@@ -70,30 +70,30 @@ const QuestionCard = ({ onYes }) => {
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-        className="glass-panel p-12 rounded-3xl text-center z-10 max-w-xl w-full mx-4 border border-white/60 relative"
+        className="glass-panel p-6 sm:p-12 rounded-2xl sm:rounded-3xl text-center z-10 max-w-xl w-full mx-2 sm:mx-4 border border-white/60 relative"
       >
         <motion.div
            animate={{ y: [0, -10, 0] }}
            transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
            className="mb-8 flex justify-center"
         >
-          <Heart className="w-24 h-24 text-valentine-red fill-valentine-pink/20 stroke-[1.5px]" />
+          <Heart className="w-16 h-16 sm:w-24 sm:h-24 text-valentine-red fill-valentine-pink/20 stroke-[1.5px]" />
         </motion.div>
 
-        <h1 className="text-5xl md:text-6xl font-elegant text-gray-800 mb-6 tracking-tight">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl font-elegant text-gray-800 mb-4 sm:mb-6 tracking-tight">
           Will you be my <span className="text-valentine-love italic">Valentine?</span>
         </h1>
         
-        <p className="text-gray-500 font-body text-lg mb-10">
+        <p className="text-gray-500 font-body text-base sm:text-lg mb-6 sm:mb-10">
           {neutralMessage ? neutralMessage : "I've been waiting to ask you this..."}
         </p>
         
-        <div className="flex justify-center gap-8 items-center h-24">
+        <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8 items-center min-h-[80px] sm:h-24">
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => onYes('yes')}
-            className="px-10 py-4 bg-gradient-to-r from-valentine-red to-valentine-love text-white font-medium rounded-full text-xl shadow-lg hover:shadow-xl transition-all ring-offset-2 focus:ring-2 ring-pink-300"
+            className="px-8 sm:px-10 py-3 sm:py-4 bg-gradient-to-r from-valentine-red to-valentine-love text-white font-medium rounded-full text-lg sm:text-xl shadow-lg hover:shadow-xl transition-all ring-offset-2 focus:ring-2 ring-pink-300 w-full sm:w-auto"
           >
             Yes, I'd love to! 💖
           </motion.button>
@@ -103,8 +103,9 @@ const QuestionCard = ({ onYes }) => {
             <motion.button
                 ref={noBtnRef}
                 onMouseEnter={moveNoButton}
+                onTouchStart={moveNoButton}
                 onClick={handleNoClick}
-                className="px-10 py-4 bg-white text-gray-400 font-medium rounded-full text-xl shadow-sm border border-gray-100 hover:text-gray-600 transition-colors"
+                className="px-8 sm:px-10 py-3 sm:py-4 bg-white text-gray-400 font-medium rounded-full text-lg sm:text-xl shadow-sm border border-gray-100 hover:text-gray-600 transition-colors w-full sm:w-auto"
             >
                 No way 🙅‍♂️
             </motion.button>
@@ -131,6 +132,7 @@ const QuestionCard = ({ onYes }) => {
                 }}
                 exit={{ opacity: 0, scale: 0.5 }}
                 onMouseEnter={moveNoButton}
+                onTouchStart={moveNoButton}
                 onClick={handleNoClick}
                 style={{
                     position: 'fixed',
@@ -144,7 +146,7 @@ const QuestionCard = ({ onYes }) => {
                     damping: 20,
                     opacity: { duration: 0.4 }
                 }}
-                className="px-10 py-4 bg-white text-gray-400 font-medium rounded-full text-xl shadow-2xl border border-gray-100 hover:text-gray-600 transition-colors whitespace-nowrap"
+                className="px-8 sm:px-10 py-3 sm:py-4 bg-white text-gray-400 font-medium rounded-full text-lg sm:text-xl shadow-2xl border border-gray-100 hover:text-gray-600 transition-colors whitespace-nowrap"
             >
                 {hoverCount >= 5 ? "Okay fine... 🥺" : "No way 🙅‍♂️"}
             </motion.button>
