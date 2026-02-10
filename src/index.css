@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-valentine-pink: #ffb8d1;
+  --color-valentine-red: #e63946;
+  --color-valentine-love: #ff4d6d;
+  --color-valentine-lavender: #d8b4fe;
+  --color-valentine-blush: #ffc2d1;
+  --color-glass: rgba(255, 255, 255, 0.4);
+
+  --font-romantic: "Pacifico", cursive;
+  --font-elegant: "Playfair Display", serif;
+  --font-body: "Inter", sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top left, #fff5f8 0%, #ffd5e8 40%, #f5a3c3 100%);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background 1s ease-in-out;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 32px 0 rgba(255, 77, 109, 0.05);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 50%, #fff0f5 0%, #ffeef8 100%);
+}
